@@ -69,15 +69,15 @@ namespace HabrXml
             XmlElement rootStudentElement = xmlDocument.CreateElement("student");
 
             XmlElement firstNameElement = xmlDocument.CreateElement("firstName");
-            firstNameElement.InnerText = "Андрей";
+            firstNameElement.InnerText = "Иван";
             rootStudentElement.AppendChild(firstNameElement);
 
             XmlElement lastNameElement = xmlDocument.CreateElement("lastName");                
-            lastNameElement.InnerText = "Андреев";
+            lastNameElement.InnerText = "Иванов";
             rootStudentElement.AppendChild(lastNameElement);
 
             XmlElement ageElement = xmlDocument.CreateElement("age");
-            ageElement.InnerText = "18";
+            ageElement.InnerText = "8";
             rootStudentElement.AppendChild(ageElement);
 
             XmlElement cityElement = xmlDocument.CreateElement("city");
