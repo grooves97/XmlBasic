@@ -13,82 +13,82 @@ namespace HabrXml
     {
         static void Main(string[] args)
         {
-            using (var client = new WebClient())
-            {
-                var items = new List<Item>();
+            //using (var client = new WebClient())
+            //{
+            //    var items = new List<Item>();
 
-                var xml = client.DownloadString("https://habr.com/ru/rss/interesting/");
+            //    var xml = client.DownloadString("https://habr.com/ru/rss/interesting/");
 
-                XmlDocument xmlDocument = new XmlDocument();
-                xmlDocument.LoadXml(xml);
+            //    XmlDocument xmlDocument = new XmlDocument();
+            //    xmlDocument.LoadXml(xml);
 
-                foreach (XmlElement xelement in xmlDocument.GetElementsByTagName("item"))
-                {
-                    XmlNode titleElement = null;
-                    XmlNode linkElement = null;
-                    XmlNode descriptionElement = null;
-                    XmlNode pubDateElement = null;
-                    foreach (XmlElement child in xelement)
-                    {
-                        if (child.Name == "title")
-                        {
-                            titleElement = child;
-                        }
-                        else if (child.Name == "link")
-                        {
-                            linkElement = child;
-                        }
-                        else if (child.Name == "description")
-                        {
-                            descriptionElement = child;
-                        }
-                        else if (child.Name == "pubDate")
-                        {
-                            pubDateElement = child;
-                        }
-                    }
-                    var item = new Item
-                    {
-                        Title = titleElement.InnerText,
-                        Link = linkElement.InnerText,
-                        Description = descriptionElement.InnerText,
-                        PubDate = pubDateElement.InnerText
+            //    foreach (XmlElement xelement in xmlDocument.GetElementsByTagName("item"))
+            //    {
+            //        XmlNode titleElement = null;
+            //        XmlNode linkElement = null;
+            //        XmlNode descriptionElement = null;
+            //        XmlNode pubDateElement = null;
+            //        foreach (XmlElement child in xelement)
+            //        {
+            //            if (child.Name == "title")
+            //            {
+            //                titleElement = child;
+            //            }
+            //            else if (child.Name == "link")
+            //            {
+            //                linkElement = child;
+            //            }
+            //            else if (child.Name == "description")
+            //            {
+            //                descriptionElement = child;
+            //            }
+            //            else if (child.Name == "pubDate")
+            //            {
+            //                pubDateElement = child;
+            //            }
+            //        }
+            //        var item = new Item
+            //        {
+            //            Title = titleElement.InnerText,
+            //            Link = linkElement.InnerText,
+            //            Description = descriptionElement.InnerText,
+            //            PubDate = pubDateElement.InnerText
 
-                    };
-                    items.Add(item);
-                }
-            }
-
-
+            //        };
+            //        items.Add(item);
+            //    }
+            //}
 
 
 
 
-            //XmlDocument xmlDocument = new XmlDocument();
 
-            //XmlElement rootStudentElement = xmlDocument.CreateElement("student");
 
-            //XmlElement firstNameElement = xmlDocument.CreateElement("firstName");
-            //firstNameElement.InnerText = "Андрей";
-            //rootStudentElement.AppendChild(firstNameElement);
+            XmlDocument xmlDocument = new XmlDocument();
 
-            //XmlElement lastNameElement = xmlDocument.CreateElement("lastName");                  //2 задание
-            //lastNameElement.InnerText = "Андреев";
-            //rootStudentElement.AppendChild(lastNameElement);
+            XmlElement rootStudentElement = xmlDocument.CreateElement("student");
 
-            //XmlElement ageElement = xmlDocument.CreateElement("age");
-            //ageElement.InnerText = "18";
-            //rootStudentElement.AppendChild(ageElement);
+            XmlElement firstNameElement = xmlDocument.CreateElement("firstName");
+            firstNameElement.InnerText = "Андрей";
+            rootStudentElement.AppendChild(firstNameElement);
 
-            //XmlElement cityElement = xmlDocument.CreateElement("city");
-            //cityElement.InnerText = "Астана";
-            //rootStudentElement.AppendChild(cityElement);
+            XmlElement lastNameElement = xmlDocument.CreateElement("lastName");                
+            lastNameElement.InnerText = "Андреев";
+            rootStudentElement.AppendChild(lastNameElement);
 
-            //xmlDocument.AppendChild(rootStudentElement);
+            XmlElement ageElement = xmlDocument.CreateElement("age");
+            ageElement.InnerText = "18";
+            rootStudentElement.AppendChild(ageElement);
 
-            //xmlDocument.Save("data.xml");
+            XmlElement cityElement = xmlDocument.CreateElement("city");
+            cityElement.InnerText = "Астана";
+            rootStudentElement.AppendChild(cityElement);
 
-            //Console.ReadLine();
+            xmlDocument.AppendChild(rootStudentElement);
+
+            xmlDocument.Save("data.xml");
+
+            Console.ReadLine();
         }
     }
 }
